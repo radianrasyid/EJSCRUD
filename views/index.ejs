@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Bashocode</h1>
+      <form action="/" method="get">
+        <table>
+          <tr>
+            <td>
+              <input 
+                type="text" 
+                name="filter" 
+                placeholder="Search..." 
+                class="form-control"
+                value="<%= filter ? filter : '' %>">
+            </td>
+            <td>
+              <button class="btn btn-info" type="submit">Search</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <a href="/add" class="btn btn-primary float-right" style="margin-bottom: 10px">Add</a>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Country</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% datas.forEach((data, id) => { %>
+          <tr>
+            <th scope="row"> <%= ++id %> </th>
+            <td> <%= data.Title %> </td>
+            <td> <%= data.Country %> </td>
+            <td class="float-right">
+              <a href="/edit/<%= data.ID %>">
+                <button 
+                  type="button" 
+                  class="btn btn-success" 
+                  style="margin-right: 10px"
+                >Edit</button>
+              </a>
+
+              <a href="/delete/<%= data.ID %>">
+                <button 
+                  type="button" 
+                  class="btn btn-danger" 
+                  style="margin-right: 10px"
+                >Delete</button>
+              </a>
+            </td>
+          </tr>
+          <% }) %>
+          <!-- <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>z
+  </body>
+</html>
